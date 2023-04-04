@@ -3,6 +3,7 @@ const bodyParser=require("body-parser");
 const date=require(__dirname+"/date.js");
 const mongoose =require("mongoose");
 const lodash=require("lodash");
+const https=require("https");
 
 mongoose.connect("mongodb+srv://maarimuthu107:2V9jzjLgcaRxALww@cluster0.lzn4aoh.mongodb.net/todolistDB");
 
@@ -130,7 +131,7 @@ app.get("/about",function(req,res){
 
  
 
-app.listen(3000,function(){
+app.listen(process.env.PORT||3000,function(){
     console.log("Server is running on the port 3000");
 })
 
