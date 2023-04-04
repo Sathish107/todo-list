@@ -1,0 +1,23 @@
+<%- include('header'); -%>
+    <div class="box " id="heading">
+        <h1>  <%=listTitle %></h1>
+    </div>
+
+    <div class="box ">
+        <form action="/delete" method="post">
+            <% for(var i=0;i < newListItems.length ;i++){%>
+                <div class="item">
+                    <input type="checkbox" name="listId" value="<%=newListItems[i]._id %>" onChange="this.form.submit()">
+                    <p ><%= newListItems[i].name%></p> 
+                    <input type="hidden" name="listName" value="<%=listTitle%>">
+                </div>
+                <%}%>
+        </form> 
+            <form class="newItem" action="/" method="post">
+                <!-- autocomplete attribute is uded to suggest some inputs -->
+                <input type="text" name="newItem" placeholder="New Item"  autocomplete="off">
+                <button type="submit" name="list" value="<%=listTitle%>">+</button>
+            </form>       
+    </div>
+
+<%- include("footer"); -%>
